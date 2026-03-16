@@ -74,3 +74,19 @@ These commands map to their corresponding tools. For example, `vp dev --port 300
 - [ ] Run `vp install` after pulling remote changes and before getting started.
 - [ ] Run `vp check` and `vp test` to validate changes.
 <!--VITE PLUS END-->
+
+## Adding a New Hook
+
+When a new hook file is added (e.g. `src/use-something.ts`), always do all of the following:
+
+## Pitfalls
+
+- **Do not call `mixer.update(delta)` in `useFrame`.** Only call `vrm.update(delta)`. The mixer is managed internally by `useAnimations` from `@react-three/drei`.
+- **Do not use `docs: { disable: true }` in Storybook stories.** It prevents the primary story from rendering in the docs page.
+
+## Adding a New Hook
+
+1. Add the file to `vite.config.ts` → `pack.entry` array
+2. Add an export to `package.json` → `exports` (e.g. `"./use-something": "./src/use-something.ts"`)
+3. Write a Storybook story in `src/use-something.stories.tsx`
+4. Add usage documentation to `README.md`

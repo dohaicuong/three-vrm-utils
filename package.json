@@ -17,7 +17,8 @@
   ],
   "type": "module",
   "exports": {
-    ".": "./dist/use-vrm-model.mjs",
+    "./use-vrm-animations": "./dist/use-vrm-animations.mjs",
+    "./use-vrm-model": "./dist/use-vrm-model.mjs",
     "./package.json": "./package.json"
   },
   "publishConfig": {

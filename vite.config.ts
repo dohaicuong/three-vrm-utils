@@ -5,11 +5,14 @@ export default defineConfig({
     "*": "vp check --fix",
   },
   pack: {
-    entry: ["src/use-vrm-model.ts"],
+    entry: ["src/use-vrm-model.ts", "src/use-vrm-animations.ts"],
     dts: {
       tsgo: true,
     },
     exports: true,
+    deps: {
+      neverBundle: [/^@pixiv\//, /^@react-three\//, /^react/, /^three/],
+    },
   },
   lint: {
     ignorePatterns: ["package.json", " .github/renovate.json"],
