@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { Suspense, useEffect } from 'react'
-import { useVRMModel } from './use-vrm-model'
-import { useVRMAnimations } from './use-vrm-animations'
-import vrmUrl from './assets/miku_nt_v1.1.2.vrm?url'
-import idleUrl from './assets/idle.vrma?url'
-import appearingUrl from './assets/appearing.vrma?url'
-import peaceSignUrl from './assets/peace-sign.vrma?url'
+import { useVRMModel } from '../use-vrm-model'
+import { useVRMAnimations } from '../use-vrm-animations'
+import vrmUrl from '../assets/miku_nt_v1.1.2.vrm?url'
+import idleUrl from '../assets/idle.vrma?url'
+import appearingUrl from '../assets/appearing.vrma?url'
+import peaceSignUrl from '../assets/peace-sign.vrma?url'
 
 const motions = {
   idle: idleUrl,

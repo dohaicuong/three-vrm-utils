@@ -2,9 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { Suspense, useCallback, useEffect, useRef, useState } from 'react'
-import { useVRMModel } from './use-vrm-model'
-import { useVRMVowelAnalyser } from './use-vrm-vowel-analyser'
-import vrmUrl from './assets/miku_nt_v1.1.2.vrm?url'
+import { useVRMModel } from '../use-vrm-model'
+import { useVRMVowelAnalyser } from '../use-vrm-vowel-analyser'
+import vrmUrl from '../assets/miku_nt_v1.1.2.vrm?url'
 
 const meta = {
   title: 'Hooks/useVRMVowelAnalyser',

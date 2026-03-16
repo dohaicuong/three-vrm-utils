@@ -6,13 +6,13 @@ export default defineConfig({
   },
   pack: {
     entry: [
-      'src/use-vrm-model.ts',
-      'src/use-vrm-animations.ts',
-      'src/use-vrm-blink.ts',
-      'src/use-vrm-breathing.ts',
-      'src/use-vrm-animation-manager.ts',
-      'src/use-vrm-expression-manager.ts',
-      'src/use-vrm-vowel-analyser.ts',
+      'src/use-vrm-model/index.ts',
+      'src/use-vrm-animations/index.ts',
+      'src/use-vrm-blink/index.ts',
+      'src/use-vrm-breathing/index.ts',
+      'src/use-vrm-animation-manager/index.ts',
+      'src/use-vrm-expression-manager/index.ts',
+      'src/use-vrm-vowel-analyser/index.ts',
     ],
     dts: {
       tsgo: true,
