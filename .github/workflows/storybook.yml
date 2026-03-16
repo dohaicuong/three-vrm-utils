@@ -25,7 +25,7 @@ jobs:
           cache: true
       - uses: actions/checkout@v6
       - run: vp install
-      - run: vp dlx storybook build
+      - run: vp exec storybook build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: storybook-static
