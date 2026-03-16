@@ -1,6 +1,6 @@
 {
   "name": "three-vrm-utils",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "A starter for creating a TypeScript package.",
   "homepage": "https://github.com/dohaicuong/three-vrm-utils#readme",
   "bugs": {
@@ -17,13 +17,13 @@
   ],
   "type": "module",
   "exports": {
-    "./use-vrm-animation-manager": "./src/use-vrm-animation-manager/index.ts",
-    "./use-vrm-animations": "./src/use-vrm-animations/index.ts",
-    "./use-vrm-blink": "./src/use-vrm-blink/index.ts",
-    "./use-vrm-breathing": "./src/use-vrm-breathing/index.ts",
-    "./use-vrm-expression-manager": "./src/use-vrm-expression-manager/index.ts",
-    "./use-vrm-model": "./src/use-vrm-model/index.ts",
-    "./use-vrm-vowel-analyser": "./src/use-vrm-vowel-analyser/index.ts",
+    "./use-vrm-animation-manager": "./dist/use-vrm-animation-manager/index.mjs",
+    "./use-vrm-animations": "./dist/use-vrm-animations/index.mjs",
+    "./use-vrm-blink": "./dist/use-vrm-blink/index.mjs",
+    "./use-vrm-breathing": "./dist/use-vrm-breathing/index.mjs",
+    "./use-vrm-expression-manager": "./dist/use-vrm-expression-manager/index.mjs",
+    "./use-vrm-model": "./dist/use-vrm-model/index.mjs",
+    "./use-vrm-vowel-analyser": "./dist/use-vrm-vowel-analyser/index.mjs",
     "./package.json": "./package.json"
   },
   "publishConfig": {

@@ -1,3 +1,14 @@
+# [1.3.0](https://github.com/dohaicuong/three-vrm-utils/compare/v1.2.0...v1.3.0) (2026-03-16)
+
+### Bug Fixes
+
+- folder structure add contribution guideline ([f95f50b](https://github.com/dohaicuong/three-vrm-utils/commit/f95f50b91fc093719a62375f632105ed840f1bcc))
+
+### Features
+
+- add use-vrm-animation-manager.ts ([4eaa4df](https://github.com/dohaicuong/three-vrm-utils/commit/4eaa4df2ba3f3e0521a241a1ca6f7e5a43c9cd46))
+- add use-vrm-vowel-analyser.ts ([e6acab1](https://github.com/dohaicuong/three-vrm-utils/commit/e6acab1ba870731c8f439f0531ecf89ea3c8a463))
+
 # [1.2.0](https://github.com/dohaicuong/three-vrm-utils/compare/v1.1.0...v1.2.0) (2026-03-16)
 
 ### Features
