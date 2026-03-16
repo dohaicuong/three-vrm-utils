@@ -12,6 +12,7 @@ export default defineConfig({
       'src/use-vrm-breathing.ts',
       'src/use-vrm-animation-manager.ts',
       'src/use-vrm-expression-manager.ts',
+      'src/use-vrm-vowel-analyser.ts',
     ],
     dts: {
       tsgo: true,

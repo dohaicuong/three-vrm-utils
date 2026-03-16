@@ -23,6 +23,7 @@
     "./use-vrm-breathing": "./dist/use-vrm-breathing.mjs",
     "./use-vrm-expression-manager": "./dist/use-vrm-expression-manager.mjs",
     "./use-vrm-model": "./dist/use-vrm-model.mjs",
+    "./use-vrm-vowel-analyser": "./src/use-vrm-vowel-analyser.ts",
     "./package.json": "./package.json"
   },
   "publishConfig": {

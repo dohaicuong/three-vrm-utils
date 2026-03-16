@@ -175,6 +175,43 @@ function ExpressiveVRM({ url }: { url: string }) {
 }
 ```
 
+### useVRMVowelAnalyser
+
+Analyses microphone audio via an `AnalyserNode` and maps volume to VRM vowel expressions (aa, ih, ou, ee, oh) for lip-sync.
+
+```tsx
+import { useVRMModel } from 'three-vrm-utils/use-vrm-model'
+import { useVRMVowelAnalyser } from 'three-vrm-utils/use-vrm-vowel-analyser'
+import { useFrame } from '@react-three/fiber'
+
+function TalkingVRM({
+  url,
+  analyserRef,
+}: {
+  url: string
+  analyserRef: React.RefObject<AnalyserNode | null>
+}) {
+  const [, vrm] = useVRMModel(url)
+
+  useVRMVowelAnalyser(analyserRef, (vowels) => {
+    const manager = vrm.expressionManager
+    if (!manager) return
+    manager.setValue('aa', vowels.aa)
+    manager.setValue('ih', vowels.ih)
+    manager.setValue('ou', vowels.ou)
+    manager.setValue('ee', vowels.ee)
+    manager.setValue('oh', vowels.oh)
+    manager.update()
+  })
+
+  useFrame((_, delta) => {
+    vrm.update(delta)
+  })
+
+  return <primitive object={vrm.scene} />
+}
+```
+
 ## License
 
 MIT
