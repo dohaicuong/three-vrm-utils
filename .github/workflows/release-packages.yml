@@ -14,6 +14,7 @@ jobs:
           node-version: "24"
           cache: true
       - run: vp install
+      - run: vp fmt --fix
       - run: vp check
       - run: vp test
       - run: vp pack

@@ -17,7 +17,5 @@ export default defineConfig({
       typeCheck: true,
     },
   },
-  fmt: {
-    ignorePatterns: ["package.json"],
-  },
+  fmt: {},
 });
