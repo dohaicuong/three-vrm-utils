@@ -13,13 +13,15 @@ export default defineConfig({
       'src/use-vrm-animation-manager/index.ts',
       'src/use-vrm-expression-manager/index.ts',
       'src/use-vrm-vowel-analyser/index.ts',
+      'src/use-vrm-webcam-look-at/index.ts',
+      'src/vrm-look-at-debug/index.tsx',
     ],
     dts: {
       tsgo: true,
     },
     exports: true,
     deps: {
-      neverBundle: [/^@pixiv\//, /^@react-three\//, /^react/, /^three/],
+      neverBundle: [/^@pixiv\//, /^@react-three\//, /^react/, /^three/, /^@mediapipe\//],
     },
   },
   lint: {

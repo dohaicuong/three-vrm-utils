@@ -212,6 +212,61 @@ function TalkingVRM({
 }
 ```
 
+### useWebcamLookAt
+
+Tracks a face via webcam using MediaPipe and makes the VRM model look at the detected face position. Falls back to looking at the camera when no face is detected.
+
+Requires `@mediapipe/tasks-vision` as a peer dependency.
+
+```tsx
+import { useVRMModel } from 'three-vrm-utils/use-vrm-model'
+import { useWebcamLookAt } from 'three-vrm-utils/use-vrm-webcam-look-at'
+import { useFrame } from '@react-three/fiber'
+import { useRef } from 'react'
+
+function WebcamVRM({ url }: { url: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [, vrm] = useVRMModel(url)
+  useWebcamLookAt(vrm, videoRef, {
+    smoothing: 0.05,
+    frameSkip: 1,
+    fallbackFrames: 30,
+  })
+
+  useFrame((_, delta) => {
+    vrm.update(delta)
+  })
+
+  return (
+    <>
+      <primitive object={vrm.scene} />
+      <video ref={videoRef} autoPlay playsInline muted />
+    </>
+  )
+}
+```
+
+### VRMLookAtDebug
+
+A debug component that renders a red line from the VRM's eyes to the current look-at target. Useful when developing with `useWebcamLookAt`.
+
+```tsx
+import { VRMLookAtDebug } from 'three-vrm-utils/vrm-look-at-debug'
+import { useWebcamLookAt } from 'three-vrm-utils/use-vrm-webcam-look-at'
+
+function DebugVRM({ url }: { url: string }) {
+  const [, vrm] = useVRMModel(url)
+  const { targetRef } = useWebcamLookAt(vrm, videoRef)
+
+  return (
+    <>
+      <primitive object={vrm.scene} />
+      <VRMLookAtDebug vrm={vrm} targetRef={targetRef} />
+    </>
+  )
+}
+```
+
 ## Contributing
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for local development setup, writing stories, and the release process.

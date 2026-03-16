@@ -17,13 +17,15 @@
   ],
   "type": "module",
   "exports": {
-    "./use-vrm-animation-manager": "./dist/use-vrm-animation-manager/index.mjs",
-    "./use-vrm-animations": "./dist/use-vrm-animations/index.mjs",
-    "./use-vrm-blink": "./dist/use-vrm-blink/index.mjs",
-    "./use-vrm-breathing": "./dist/use-vrm-breathing/index.mjs",
-    "./use-vrm-expression-manager": "./dist/use-vrm-expression-manager/index.mjs",
-    "./use-vrm-model": "./dist/use-vrm-model/index.mjs",
-    "./use-vrm-vowel-analyser": "./dist/use-vrm-vowel-analyser/index.mjs",
+    "./use-vrm-animation-manager": "./src/use-vrm-animation-manager/index.ts",
+    "./use-vrm-animations": "./src/use-vrm-animations/index.ts",
+    "./use-vrm-blink": "./src/use-vrm-blink/index.ts",
+    "./use-vrm-breathing": "./src/use-vrm-breathing/index.ts",
+    "./use-vrm-expression-manager": "./src/use-vrm-expression-manager/index.ts",
+    "./use-vrm-model": "./src/use-vrm-model/index.ts",
+    "./use-vrm-vowel-analyser": "./src/use-vrm-vowel-analyser/index.ts",
+    "./use-vrm-webcam-look-at": "./src/use-vrm-webcam-look-at/index.ts",
+    "./vrm-look-at-debug": "./src/vrm-look-at-debug/index.tsx",
     "./package.json": "./package.json"
   },
   "publishConfig": {
@@ -63,6 +65,7 @@
     "vite-plus": "^0.1.11"
   },
   "peerDependencies": {
+    "@mediapipe/tasks-vision": ">=0.10.0",
     "@pixiv/three-vrm": "^3.0.0",
     "@pixiv/three-vrm-animation": "^3.0.0",
     "@react-three/fiber": "^9.0.0",

@@ -11,6 +11,10 @@ overrides:
 importers:
 
   .:
+    dependencies:
+      '@mediapipe/tasks-vision':
+        specifier: '>=0.10.0'
+        version: 0.10.17
     devDependencies:
       '@pixiv/three-vrm':
         specifier: ^3.5.1
