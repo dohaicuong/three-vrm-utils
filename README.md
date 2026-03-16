@@ -65,6 +65,31 @@ function AnimatedVRM({ url }: { url: string }) {
 }
 ```
 
+### useVRMBlink
+
+Adds automatic blinking to a VRM model with configurable timing and double-blink support.
+
+```tsx
+import { useVRMModel } from "three-vrm-utils/use-vrm-model";
+import { useVRMBlink } from "three-vrm-utils/use-vrm-blink";
+import { useFrame } from "@react-three/fiber";
+
+function BlinkingVRM({ url }: { url: string }) {
+  const [, vrm] = useVRMModel(url);
+  useVRMBlink(vrm, {
+    minInterval: 2.5,
+    maxInterval: 5.5,
+    doubleBlinkChance: 0.12,
+  });
+
+  useFrame((_, delta) => {
+    vrm.update(delta);
+  });
+
+  return <primitive object={vrm.scene} />;
+}
+```
+
 ## License
 
 MIT

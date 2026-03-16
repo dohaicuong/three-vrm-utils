@@ -5,7 +5,7 @@ export default defineConfig({
     "*": "vp check --fix",
   },
   pack: {
-    entry: ["src/use-vrm-model.ts", "src/use-vrm-animations.ts"],
+    entry: ["src/use-vrm-model.ts", "src/use-vrm-animations.ts", "src/use-vrm-blink.ts"],
     dts: {
       tsgo: true,
     },
