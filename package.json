@@ -17,7 +17,7 @@
   ],
   "type": "module",
   "exports": {
-    "./use-vrm-model": "./src/use-vrm-model.ts",
+    ".": "./dist/use-vrm-model.mjs",
     "./package.json": "./package.json"
   },
   "publishConfig": {

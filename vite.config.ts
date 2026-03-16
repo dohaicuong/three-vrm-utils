@@ -5,6 +5,7 @@ export default defineConfig({
     "*": "vp check --fix",
   },
   pack: {
+    entry: ["src/use-vrm-model.ts"],
     dts: {
       tsgo: true,
     },
