@@ -11,7 +11,7 @@ export default defineConfig({
     exports: true,
   },
   lint: {
-    ignorePatterns: ["package.json"],
+    ignorePatterns: ["package.json", "renovate.json"],
     options: {
       typeAware: true,
       typeCheck: true,
