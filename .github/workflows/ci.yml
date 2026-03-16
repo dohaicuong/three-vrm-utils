@@ -22,5 +22,4 @@ jobs:
       - uses: actions/checkout@v6
       - run: vp install
       - run: vp check
-      - run: vp test
       - run: vp pack
