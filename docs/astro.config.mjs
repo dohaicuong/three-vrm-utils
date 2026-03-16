@@ -34,7 +34,13 @@ export default defineConfig({
         },
         {
           label: 'Links',
-          items: [{ label: 'Storybook', link: '/three-vrm-utils/storybook/' }],
+          items: [
+            {
+              label: 'Storybook',
+              link: 'https://dohaicuong.github.io/three-vrm-utils/storybook/',
+              attrs: { target: '_blank' },
+            },
+          ],
         },
       ],
     }),
