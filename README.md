@@ -212,6 +212,10 @@ function TalkingVRM({
 }
 ```
 
+## Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for local development setup, writing stories, and the release process.
+
 ## License
 
 MIT
