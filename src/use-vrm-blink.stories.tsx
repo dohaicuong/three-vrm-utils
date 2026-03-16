@@ -92,8 +92,10 @@ function BlinkingVRM({ url, ...options }: BlinkProps) {
 function Scene({ url, ...options }: BlinkProps) {
   return (
     <Canvas camera={{ position: [0, 1.45, 0.6], fov: 30 }} style={{ height: "100vh" }}>
+      <color attach="background" args={["#1a1a1a"]} />
       <ambientLight intensity={1} />
-      <directionalLight position={[1, 1, 3]} intensity={1} />
+      <directionalLight position={[2, 3, 5]} intensity={1} />
+      <directionalLight position={[-2, 2, -3]} intensity={0.5} />
       <Suspense fallback={null}>
         <BlinkingVRM url={url} {...options} />
       </Suspense>

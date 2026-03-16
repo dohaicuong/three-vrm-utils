@@ -90,6 +90,30 @@ function BlinkingVRM({ url }: { url: string }) {
 }
 ```
 
+### useVRMBreathing
+
+Adds a subtle breathing animation to a VRM model by scaling the chest and spine bones.
+
+```tsx
+import { useVRMModel } from "three-vrm-utils/use-vrm-model";
+import { useVRMBreathing } from "three-vrm-utils/use-vrm-breathing";
+import { useFrame } from "@react-three/fiber";
+
+function BreathingVRM({ url }: { url: string }) {
+  const [, vrm] = useVRMModel(url);
+  useVRMBreathing(vrm, {
+    bpm: 18,
+    intensity: 0.01,
+  });
+
+  useFrame((_, delta) => {
+    vrm.update(delta);
+  });
+
+  return <primitive object={vrm.scene} />;
+}
+```
+
 ## License
 
 MIT

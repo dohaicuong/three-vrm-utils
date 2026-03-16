@@ -19,6 +19,7 @@
   "exports": {
     "./use-vrm-animations": "./src/use-vrm-animations.ts",
     "./use-vrm-blink": "./src/use-vrm-blink.ts",
+    "./use-vrm-breathing": "./src/use-vrm-breathing.ts",
     "./use-vrm-model": "./src/use-vrm-model.ts",
     "./package.json": "./package.json"
   },

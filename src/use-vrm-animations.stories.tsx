@@ -110,8 +110,10 @@ function AnimatedVRM({ url, animation }: { url: string; animation: MotionName })
 function Scene({ url, animation }: { url: string; animation: MotionName }) {
   return (
     <Canvas camera={{ position: [0, 1.2, 1.5], fov: 45 }} style={{ height: "100vh" }}>
+      <color attach="background" args={["#1a1a1a"]} />
       <ambientLight intensity={1} />
-      <directionalLight position={[1, 1, 3]} intensity={1} />
+      <directionalLight position={[2, 3, 5]} intensity={1} />
+      <directionalLight position={[-2, 2, -3]} intensity={0.5} />
       <Suspense fallback={null}>
         <AnimatedVRM url={url} animation={animation} />
       </Suspense>
