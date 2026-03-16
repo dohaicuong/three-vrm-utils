@@ -23,11 +23,11 @@ npm install react react-dom three @react-three/fiber @pixiv/three-vrm @pixiv/thr
 Loads a VRM model with optimized defaults. Automatically uses `MToonNodeMaterial` when a WebGPU renderer is detected.
 
 ```tsx
-import { useVRMModel } from "three-vrm-utils/use-vrm-model";
+import { useVRMModel } from 'three-vrm-utils/use-vrm-model'
 
 function VRMModel({ url }: { url: string }) {
-  const [gltf, vrm] = useVRMModel(url);
-  return <primitive object={vrm.scene} />;
+  const [gltf, vrm] = useVRMModel(url)
+  return <primitive object={vrm.scene} />
 }
 ```
 
@@ -36,32 +36,32 @@ function VRMModel({ url }: { url: string }) {
 Loads and manages VRM animations from `.vrma` files. Returns typed actions and a mixer for frame updates.
 
 ```tsx
-import { useVRMModel } from "three-vrm-utils/use-vrm-model";
-import { useVRMAnimations } from "three-vrm-utils/use-vrm-animations";
-import { useFrame } from "@react-three/fiber";
-import { useEffect } from "react";
+import { useVRMModel } from 'three-vrm-utils/use-vrm-model'
+import { useVRMAnimations } from 'three-vrm-utils/use-vrm-animations'
+import { useFrame } from '@react-three/fiber'
+import { useEffect } from 'react'
 
 const motions = {
-  idle: "/assets/idle.vrma",
-  wave: "/assets/wave.vrma",
-};
+  idle: '/assets/idle.vrma',
+  wave: '/assets/wave.vrma',
+}
 
 function AnimatedVRM({ url }: { url: string }) {
-  const [, vrm] = useVRMModel(url);
-  const { actions } = useVRMAnimations(vrm, motions);
+  const [, vrm] = useVRMModel(url)
+  const { actions } = useVRMAnimations(vrm, motions)
 
   useEffect(() => {
-    actions.idle?.reset().fadeIn(0.3).play();
+    actions.idle?.reset().fadeIn(0.3).play()
     return () => {
-      actions.idle?.fadeOut(0.3);
-    };
-  }, [actions]);
+      actions.idle?.fadeOut(0.3)
+    }
+  }, [actions])
 
   useFrame((_, delta) => {
-    vrm.update(delta);
-  });
+    vrm.update(delta)
+  })
 
-  return <primitive object={vrm.scene} />;
+  return <primitive object={vrm.scene} />
 }
 ```
 
@@ -70,23 +70,23 @@ function AnimatedVRM({ url }: { url: string }) {
 Adds automatic blinking to a VRM model with configurable timing and double-blink support.
 
 ```tsx
-import { useVRMModel } from "three-vrm-utils/use-vrm-model";
-import { useVRMBlink } from "three-vrm-utils/use-vrm-blink";
-import { useFrame } from "@react-three/fiber";
+import { useVRMModel } from 'three-vrm-utils/use-vrm-model'
+import { useVRMBlink } from 'three-vrm-utils/use-vrm-blink'
+import { useFrame } from '@react-three/fiber'
 
 function BlinkingVRM({ url }: { url: string }) {
-  const [, vrm] = useVRMModel(url);
+  const [, vrm] = useVRMModel(url)
   useVRMBlink(vrm, {
     minInterval: 2.5,
     maxInterval: 5.5,
     doubleBlinkChance: 0.12,
-  });
+  })
 
   useFrame((_, delta) => {
-    vrm.update(delta);
-  });
+    vrm.update(delta)
+  })
 
-  return <primitive object={vrm.scene} />;
+  return <primitive object={vrm.scene} />
 }
 ```
 
@@ -95,22 +95,52 @@ function BlinkingVRM({ url }: { url: string }) {
 Adds a subtle breathing animation to a VRM model by scaling the chest and spine bones.
 
 ```tsx
-import { useVRMModel } from "three-vrm-utils/use-vrm-model";
-import { useVRMBreathing } from "three-vrm-utils/use-vrm-breathing";
-import { useFrame } from "@react-three/fiber";
+import { useVRMModel } from 'three-vrm-utils/use-vrm-model'
+import { useVRMBreathing } from 'three-vrm-utils/use-vrm-breathing'
+import { useFrame } from '@react-three/fiber'
 
 function BreathingVRM({ url }: { url: string }) {
-  const [, vrm] = useVRMModel(url);
+  const [, vrm] = useVRMModel(url)
   useVRMBreathing(vrm, {
     bpm: 18,
     intensity: 0.01,
-  });
+  })
 
   useFrame((_, delta) => {
-    vrm.update(delta);
-  });
+    vrm.update(delta)
+  })
 
-  return <primitive object={vrm.scene} />;
+  return <primitive object={vrm.scene} />
+}
+```
+
+### useVRMExpressionManager
+
+Manages VRM facial expressions with optional hold and decay timing.
+
+```tsx
+import { useVRMModel } from 'three-vrm-utils/use-vrm-model'
+import { useVRMExpressionManager } from 'three-vrm-utils/use-vrm-expression-manager'
+import { useFrame } from '@react-three/fiber'
+import { useEffect } from 'react'
+
+function ExpressiveVRM({ url }: { url: string }) {
+  const [, vrm] = useVRMModel(url)
+  const { send } = useVRMExpressionManager(vrm)
+
+  useEffect(() => {
+    // Simple: set expression to a value
+    send({ happy: 1 })
+
+    // With timing: hold for 1s then decay over 0.5s
+    send({ surprised: { value: 1, hold: 1, decay: 0.5 } })
+  }, [send])
+
+  useFrame((_, delta) => {
+    vrm.update(delta)
+  })
+
+  return <primitive object={vrm.scene} />
 }
 ```
 

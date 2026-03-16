@@ -1,17 +1,17 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import { Suspense } from "react";
-import { useVRMModel } from "./use-vrm-model";
-import { useVRMBlink } from "./use-vrm-blink";
-import vrmUrl from "./assets/miku_nt_v1.1.2.vrm?url";
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import { Canvas, useFrame } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
+import { Suspense } from 'react'
+import { useVRMModel } from './use-vrm-model'
+import { useVRMBlink } from './use-vrm-blink'
+import vrmUrl from './assets/miku_nt_v1.1.2.vrm?url'
 
 const meta = {
-  title: "Hooks/useVRMBlink",
+  title: 'Hooks/useVRMBlink',
   component: Scene,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
     docs: {
       source: {
         code: `import { useVRMModel } from "three-vrm-utils/use-vrm-model";
@@ -29,17 +29,17 @@ function VRMModel({ url }: { url: string }) {
     },
   },
   argTypes: {
-    minInterval: { control: { type: "range", min: 0.5, max: 5, step: 0.1 } },
-    maxInterval: { control: { type: "range", min: 2, max: 10, step: 0.1 } },
-    closeTime: { control: { type: "range", min: 0.01, max: 0.3, step: 0.01 } },
-    holdTime: { control: { type: "range", min: 0.01, max: 0.3, step: 0.01 } },
-    openTime: { control: { type: "range", min: 0.01, max: 0.5, step: 0.01 } },
-    doubleBlinkChance: { control: { type: "range", min: 0, max: 1, step: 0.01 } },
+    minInterval: { control: { type: 'range', min: 0.5, max: 5, step: 0.1 } },
+    maxInterval: { control: { type: 'range', min: 2, max: 10, step: 0.1 } },
+    closeTime: { control: { type: 'range', min: 0.01, max: 0.3, step: 0.01 } },
+    holdTime: { control: { type: 'range', min: 0.01, max: 0.3, step: 0.01 } },
+    openTime: { control: { type: 'range', min: 0.01, max: 0.5, step: 0.01 } },
+    doubleBlinkChance: { control: { type: 'range', min: 0, max: 1, step: 0.01 } },
   },
-} satisfies Meta<typeof Scene>;
+} satisfies Meta<typeof Scene>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
@@ -51,7 +51,7 @@ export const Default: Story = {
     openTime: 0.18,
     doubleBlinkChance: 0.12,
   },
-};
+}
 
 export const FrequentBlink: Story = {
   args: {
@@ -64,35 +64,35 @@ export const FrequentBlink: Story = {
     doubleBlinkChance: 0.5,
   },
   parameters: {
-    docs: { description: { story: "Fast blinking with high double-blink chance" } },
+    docs: { description: { story: 'Fast blinking with high double-blink chance' } },
   },
-};
+}
 
 interface BlinkProps {
-  url: string;
-  minInterval: number;
-  maxInterval: number;
-  closeTime: number;
-  holdTime: number;
-  openTime: number;
-  doubleBlinkChance: number;
+  url: string
+  minInterval: number
+  maxInterval: number
+  closeTime: number
+  holdTime: number
+  openTime: number
+  doubleBlinkChance: number
 }
 
 function BlinkingVRM({ url, ...options }: BlinkProps) {
-  const [, vrm] = useVRMModel(url);
-  useVRMBlink(vrm, options);
+  const [, vrm] = useVRMModel(url)
+  useVRMBlink(vrm, options)
 
   useFrame((_, delta) => {
-    vrm.update(delta);
-  });
+    vrm.update(delta)
+  })
 
-  return <primitive object={vrm.scene} />;
+  return <primitive object={vrm.scene} />
 }
 
 function Scene({ url, ...options }: BlinkProps) {
   return (
-    <Canvas camera={{ position: [0, 1.45, 0.6], fov: 30 }} style={{ height: "100vh" }}>
-      <color attach="background" args={["#1a1a1a"]} />
+    <Canvas camera={{ position: [0, 1.45, 0.6], fov: 30 }} style={{ height: '100vh' }}>
+      <color attach="background" args={['#1a1a1a']} />
       <ambientLight intensity={1} />
       <directionalLight position={[2, 3, 5]} intensity={1} />
       <directionalLight position={[-2, 2, -3]} intensity={0.5} />
@@ -101,5 +101,5 @@ function Scene({ url, ...options }: BlinkProps) {
       </Suspense>
       <OrbitControls target={[0, 1.4, 0]} />
     </Canvas>
-  );
+  )
 }

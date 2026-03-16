@@ -1,4 +1,4 @@
-import type { Preview } from "@storybook/react-vite";
+import type { Preview } from '@storybook/react-vite'
 
 const preview: Preview = {
   parameters: {
@@ -15,9 +15,9 @@ const preview: Preview = {
       },
     },
     a11y: {
-      test: "error",
+      test: 'error',
     },
   },
-};
+}
 
-export default preview;
+export default preview
