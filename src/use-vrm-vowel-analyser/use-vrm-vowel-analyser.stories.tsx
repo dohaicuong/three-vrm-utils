@@ -9,7 +9,6 @@ import vrmUrl from '../assets/miku_nt_v1.1.2.vrm?url'
 const meta = {
   title: 'Hooks/useVRMVowelAnalyser',
   component: Scene,
-  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -90,14 +89,14 @@ function Scene({ url }: { url: string }) {
   useEffect(() => {
     return () => {
       streamRef.current?.getTracks().forEach((t) => t.stop())
-      ctxRef.current?.close()
+      void ctxRef.current?.close()
     }
   }, [])
 
   const toggle = async () => {
     if (listening) {
       streamRef.current?.getTracks().forEach((t) => t.stop())
-      ctxRef.current?.close()
+      void ctxRef.current?.close()
       analyserRef.current = null
       setListening(false)
     } else {
