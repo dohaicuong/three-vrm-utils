@@ -4,6 +4,8 @@ on:
   push:
     branches: [master]
 
+permissions: {}
+
 jobs:
   ci:
     timeout-minutes: 15
