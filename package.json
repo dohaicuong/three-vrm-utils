@@ -17,6 +17,7 @@
   ],
   "type": "module",
   "exports": {
+    "./use-vrm-animation-manager": "./src/use-vrm-animation-manager.ts",
     "./use-vrm-animations": "./dist/use-vrm-animations.mjs",
     "./use-vrm-blink": "./dist/use-vrm-blink.mjs",
     "./use-vrm-breathing": "./dist/use-vrm-breathing.mjs",

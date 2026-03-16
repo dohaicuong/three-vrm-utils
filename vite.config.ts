@@ -10,6 +10,7 @@ export default defineConfig({
       'src/use-vrm-animations.ts',
       'src/use-vrm-blink.ts',
       'src/use-vrm-breathing.ts',
+      'src/use-vrm-animation-manager.ts',
       'src/use-vrm-expression-manager.ts',
     ],
     dts: {

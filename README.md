@@ -114,6 +114,37 @@ function BreathingVRM({ url }: { url: string }) {
 }
 ```
 
+### useVRMAnimationManager
+
+A state-machine wrapper for VRM animations. Manages idle loops, crossfading, and automatic return-to-idle when an action finishes.
+
+```tsx
+import { useVRMModel } from 'three-vrm-utils/use-vrm-model'
+import { useVRMAnimations } from 'three-vrm-utils/use-vrm-animations'
+import { useVRMAnimationManager } from 'three-vrm-utils/use-vrm-animation-manager'
+import { useFrame } from '@react-three/fiber'
+
+const motions = {
+  idle: '/assets/idle.vrma',
+  wave: '/assets/wave.vrma',
+}
+
+function ManagedVRM({ url }: { url: string }) {
+  const [, vrm] = useVRMModel(url)
+  const { actions, mixer } = useVRMAnimations(vrm, motions)
+  const { send } = useVRMAnimationManager(mixer, actions, {
+    idle: 'idle',
+    fadeTime: 0.3,
+  })
+
+  useFrame((_, delta) => {
+    vrm.update(delta)
+  })
+
+  return <primitive object={vrm.scene} onClick={() => send('wave')} />
+}
+```
+
 ### useVRMExpressionManager
 
 Manages VRM facial expressions with optional hold and decay timing.
