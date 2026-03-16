@@ -2,15 +2,15 @@
   "name": "three-vrm-utils",
   "version": "0.0.1",
   "description": "A starter for creating a TypeScript package.",
-  "homepage": "https://github.com/author/library#readme",
+  "homepage": "https://github.com/dohaicuong/three-vrm-utils#readme",
   "bugs": {
-    "url": "https://github.com/author/library/issues"
+    "url": "https://github.com/dohaicuong/three-vrm-utils/issues"
   },
   "license": "MIT",
-  "author": "Author Name <author.name@mail.com>",
+  "author": "dohaicuong",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/author/library.git"
+    "url": "git+https://github.com/dohaicuong/three-vrm-utils.git"
   },
   "files": [
     "dist"
