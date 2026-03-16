@@ -1,3 +1,9 @@
+# [1.1.0](https://github.com/dohaicuong/three-vrm-utils/compare/v1.0.0...v1.1.0) (2026-03-16)
+
+### Features
+
+- release use-vrm-model with storybook ([6714dfa](https://github.com/dohaicuong/three-vrm-utils/commit/6714dfa37d09f055ac65889d504a1949748cbc9c))
+
 # 1.0.0 (2026-03-16)
 
 ### Features
