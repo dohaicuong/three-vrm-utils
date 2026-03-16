@@ -23,7 +23,7 @@ export default defineConfig({
     },
   },
   lint: {
-    ignorePatterns: ['package.json', ' .github/renovate.json'],
+    ignorePatterns: ['package.json', '.github/renovate.json', 'docs'],
     options: {
       typeAware: true,
       typeCheck: true,
