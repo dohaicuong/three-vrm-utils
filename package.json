@@ -1,6 +1,6 @@
 {
   "name": "three-vrm-utils",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A starter for creating a TypeScript package.",
   "homepage": "https://github.com/dohaicuong/three-vrm-utils#readme",
   "bugs": {
@@ -17,11 +17,11 @@
   ],
   "type": "module",
   "exports": {
-    "./use-vrm-animations": "./src/use-vrm-animations.ts",
-    "./use-vrm-blink": "./src/use-vrm-blink.ts",
-    "./use-vrm-breathing": "./src/use-vrm-breathing.ts",
-    "./use-vrm-expression-manager": "./src/use-vrm-expression-manager.ts",
-    "./use-vrm-model": "./src/use-vrm-model.ts",
+    "./use-vrm-animations": "./dist/use-vrm-animations.mjs",
+    "./use-vrm-blink": "./dist/use-vrm-blink.mjs",
+    "./use-vrm-breathing": "./dist/use-vrm-breathing.mjs",
+    "./use-vrm-expression-manager": "./dist/use-vrm-expression-manager.mjs",
+    "./use-vrm-model": "./dist/use-vrm-model.mjs",
     "./package.json": "./package.json"
   },
   "publishConfig": {
