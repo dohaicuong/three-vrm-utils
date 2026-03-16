@@ -37,9 +37,12 @@
     "prepublishOnly": "vp run build",
     "prepare": "vp config",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "docs": "astro dev --root docs",
+    "build-docs": "astro build --root docs"
   },
   "devDependencies": {
+    "@astrojs/starlight": "^0.38.1",
     "@pixiv/three-vrm": "^3.5.1",
     "@pixiv/three-vrm-animation": "^3.5.1",
     "@react-three/drei": "^10.7.7",
@@ -54,6 +57,7 @@
     "@types/react-dom": "^19.2.3",
     "@types/three": "^0.183.1",
     "@typescript/native-preview": "7.0.0-dev.20260316.1",
+    "astro": "^6.0.5",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "semantic-release": "^25.0.3",

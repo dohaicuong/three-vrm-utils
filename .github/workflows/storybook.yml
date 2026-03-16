@@ -1,4 +1,4 @@
-name: Storybook
+name: Deploy
 
 on:
   workflow_run:
@@ -25,10 +25,23 @@ jobs:
           cache: true
       - uses: actions/checkout@v6
       - run: vp install
-      - run: vp exec storybook build
+
+      # Build Storybook
+      - run: vp exec storybook build -o storybook-static
+
+      # Build Starlight docs
+      - run: vp run build-docs
+
+      # Combine into single site
+      - run: |
+          mkdir -p _site/storybook
+          mkdir -p _site/docs
+          cp -r storybook-static/* _site/storybook/
+          cp -r docs/dist/* _site/docs/
+
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: storybook-static
+          path: _site
 
   deploy:
     needs: build

@@ -20,7 +20,6 @@ type MotionName = keyof typeof motions
 const meta = {
   title: 'Hooks/useVRMAnimations',
   component: Scene,
-  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
     docs: {

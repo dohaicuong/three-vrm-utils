@@ -9,7 +9,6 @@ import vrmUrl from '../assets/miku_nt_v1.1.2.vrm?url'
 const meta = {
   title: 'Hooks/useVRMBlink',
   component: Scene,
-  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
     docs: {
