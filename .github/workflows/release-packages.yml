@@ -1,21 +1,24 @@
-name: Release package
+name: CI
 
 on:
   push:
-    branches: ["master"]
+    branches: [master]
 
 jobs:
-  build:
+  ci:
+    timeout-minutes: 15
+
+    strategy:
+      fail-fast: false
+
     runs-on: ubuntu-latest
 
     steps:
       - uses: voidzero-dev/setup-vp@v1
         with:
-          version: "0.1.12"
-          node-version: "24"
           cache: true
       - run: ls
       - run: vp install
-      # - run: vp check
-      # - run: vp test
+      - run: vp check
+      - run: vp test
       - run: vp pack
