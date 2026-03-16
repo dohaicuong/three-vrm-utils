@@ -17,7 +17,7 @@
   ],
   "type": "module",
   "exports": {
-    ".": "./dist/index.mjs",
+    "./use-vrm-model": "./src/use-vrm-model.ts",
     "./package.json": "./package.json"
   },
   "publishConfig": {
@@ -29,16 +29,40 @@
     "test": "vp test",
     "check": "vp check",
     "prepublishOnly": "vp run build",
-    "prepare": "vp config"
+    "prepare": "vp config",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
+    "@pixiv/three-vrm": "^3.5.1",
+    "@pixiv/three-vrm-animation": "^3.5.1",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
+    "@storybook/addon-a11y": "^10.2.19",
+    "@storybook/addon-docs": "^10.2.19",
+    "@storybook/react-vite": "^10.2.19",
     "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.183.1",
     "@typescript/native-preview": "7.0.0-dev.20260316.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "semantic-release": "^25.0.3",
+    "storybook": "^10.2.19",
+    "three": "^0.183.2",
     "typescript": "^5.9.3",
     "vite-plus": "^0.1.11"
+  },
+  "peerDependencies": {
+    "@pixiv/three-vrm": "^3.0.0",
+    "@pixiv/three-vrm-animation": "^3.0.0",
+    "@react-three/fiber": "^9.0.0",
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "three": ">=0.150.0"
   },
   "packageManager": "pnpm@10.32.1",
   "pnpm": {
