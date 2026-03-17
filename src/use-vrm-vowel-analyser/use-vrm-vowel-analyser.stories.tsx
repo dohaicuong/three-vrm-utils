@@ -11,31 +11,6 @@ const meta = {
   component: Scene,
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      source: {
-        code: `import { useVRMModel } from "three-vrm-utils/use-vrm-model";
-import { useVRMVowelAnalyser } from "three-vrm-utils/use-vrm-vowel-analyser";
-
-function TalkingVRM({ url, analyserRef }: { url: string; analyserRef: React.RefObject<AnalyserNode | null> }) {
-  const [, vrm] = useVRMModel(url);
-
-  useVRMVowelAnalyser(analyserRef, (vowels) => {
-    const manager = vrm.expressionManager;
-    if (!manager) return;
-    manager.setValue("aa", vowels.aa);
-    manager.setValue("ih", vowels.ih);
-    manager.setValue("ou", vowels.ou);
-    manager.setValue("ee", vowels.ee);
-    manager.setValue("oh", vowels.oh);
-    manager.update();
-  });
-
-  useFrame((_, delta) => vrm.update(delta));
-
-  return <primitive object={vrm.scene} />;
-}`,
-      },
-    },
   },
 } satisfies Meta<typeof Scene>
 

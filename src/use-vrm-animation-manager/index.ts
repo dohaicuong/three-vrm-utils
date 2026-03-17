@@ -1,7 +1,7 @@
 import { useEffect, useRef, useCallback } from 'react'
 import { AnimationMixer, AnimationAction, LoopRepeat, LoopOnce } from 'three'
 
-interface UseAnimationFSMOptions<T extends string> {
+export interface UseAnimationFSMOptions<T extends string> {
   /** Idle animation(s). A single name loops forever; an array plays each once and randomly picks the next. */
   idle?: NoInfer<T> | NoInfer<T>[]
   /** State to enter on mount (default: first idle) */
@@ -10,7 +10,7 @@ interface UseAnimationFSMOptions<T extends string> {
   fadeTime?: number
 }
 
-interface UseAnimationFSMReturn<T extends string> {
+export interface UseAnimationFSMReturn<T extends string> {
   send: (name: T) => number
   getState: () => T | null
 }

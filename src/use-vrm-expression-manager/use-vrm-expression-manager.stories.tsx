@@ -11,25 +11,6 @@ const meta = {
   component: Scene,
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      source: {
-        code: `import { useVRMModel } from "three-vrm-utils/use-vrm-model";
-import { useVRMExpressionManager } from "three-vrm-utils/use-vrm-expression-manager";
-
-function VRMModel({ url }: { url: string }) {
-  const [, vrm] = useVRMModel(url);
-  const { send } = useVRMExpressionManager(vrm);
-
-  useEffect(() => {
-    send({ happy: 1 });
-  }, [send]);
-
-  useFrame((_, delta) => vrm.update(delta));
-
-  return <primitive object={vrm.scene} />;
-}`,
-      },
-    },
   },
   argTypes: {
     expression: {
@@ -54,9 +35,6 @@ export const Sad: Story = {
     url: vrmUrl,
     expression: 'sad',
   },
-  parameters: {
-    docs: { description: { story: 'VRM model with sad expression' } },
-  },
 }
 
 export const WithDecay: Story = {
@@ -65,13 +43,6 @@ export const WithDecay: Story = {
     expression: 'angry',
   },
   render: () => <DecayScene url={vrmUrl} />,
-  parameters: {
-    docs: {
-      description: {
-        story: 'Expression with hold and decay — holds for 2s then fades over 0.2s',
-      },
-    },
-  },
 }
 
 function ExpressionVRM({ url, expression }: { url: string; expression: string }) {

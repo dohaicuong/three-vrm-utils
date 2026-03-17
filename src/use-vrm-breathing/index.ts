@@ -2,7 +2,7 @@ import type { VRM } from '@pixiv/three-vrm'
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 
-interface UseVRMBreathingOptions {
+export interface UseVRMBreathingOptions {
   /** Breaths per minute (default: 18) */
   bpm?: number
   /** How much the chest scales on inhale (default: 0.01) */

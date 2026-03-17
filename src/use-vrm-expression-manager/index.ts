@@ -12,7 +12,7 @@ interface ExpressionOptions {
   decay?: number
 }
 
-type ExpressionMap = Partial<Record<ExpressionName, number | ExpressionOptions>>
+export type ExpressionMap = Partial<Record<ExpressionName, number | ExpressionOptions>>
 
 interface ExpressionState {
   value: number

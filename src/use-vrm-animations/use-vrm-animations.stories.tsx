@@ -22,32 +22,6 @@ const meta = {
   component: Scene,
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      source: {
-        code: `import { useVRMModel } from "three-vrm-utils/use-vrm-model";
-import { useVRMAnimations } from "three-vrm-utils/use-vrm-animations";
-
-const motions = {
-  idle: "/assets/idle.vrma",
-  appearing: "/assets/appearing.vrma",
-  "peace-sign": "/assets/peace-sign.vrma",
-};
-
-function VRMModel({ url, animation }: { url: string; animation: string }) {
-  const [, vrm] = useVRMModel(url);
-  const { actions } = useVRMAnimations(vrm, motions);
-
-  useEffect(() => {
-    actions[animation]?.reset().fadeIn(0.3).play();
-    return () => { actions[animation]?.fadeOut(0.3); };
-  }, [actions, animation]);
-
-  useFrame((_, delta) => vrm.update(delta));
-
-  return <primitive object={vrm.scene} />;
-}`,
-      },
-    },
   },
   argTypes: {
     animation: {
@@ -72,18 +46,12 @@ export const Appearing: Story = {
     url: vrmUrl,
     animation: 'appearing',
   },
-  parameters: {
-    docs: { description: { story: 'VRM model playing the appearing animation' } },
-  },
 }
 
 export const PeaceSign: Story = {
   args: {
     url: vrmUrl,
     animation: 'peace-sign',
-  },
-  parameters: {
-    docs: { description: { story: 'VRM model playing the peace sign animation' } },
   },
 }
 

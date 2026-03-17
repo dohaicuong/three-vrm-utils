@@ -11,16 +11,6 @@ const meta = {
   component: Scene,
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      source: {
-        code: `import { LightingPreset } from "three-vrm-utils/lighting-preset";
-
-<Canvas>
-  <LightingPreset preset="warm" />
-  {/* your VRM model */}
-</Canvas>`,
-      },
-    },
   },
   argTypes: {
     preset: {

@@ -8,14 +8,14 @@ const VOWELS: VowelExpression[] = ['aa', 'ih', 'ou', 'ee', 'oh']
 
 interface VowelAmplitudes extends Record<VowelExpression, number> {}
 
-interface UseAnalyserVowelOptions {
+export interface UseAnalyserVowelOptions {
   /** Volume threshold to start cycling vowels (default: 0.1) */
   threshold?: number
   /** Seconds between vowel changes (default: 0.12) */
   interval?: number
 }
 
-type VowelCallback = (vowels: VowelAmplitudes) => void
+export type VowelCallback = (vowels: VowelAmplitudes) => void
 
 export function useVRMVowelAnalyser(
   analyserRef: React.RefObject<AnalyserNode | null>,

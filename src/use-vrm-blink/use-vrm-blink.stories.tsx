@@ -11,21 +11,6 @@ const meta = {
   component: Scene,
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      source: {
-        code: `import { useVRMModel } from "three-vrm-utils/use-vrm-model";
-import { useVRMBlink } from "three-vrm-utils/use-vrm-blink";
-
-function VRMModel({ url }: { url: string }) {
-  const [, vrm] = useVRMModel(url);
-  useVRMBlink(vrm);
-
-  useFrame((_, delta) => vrm.update(delta));
-
-  return <primitive object={vrm.scene} />;
-}`,
-      },
-    },
   },
   argTypes: {
     minInterval: { control: { type: 'range', min: 0.5, max: 5, step: 0.1 } },
@@ -61,9 +46,6 @@ export const FrequentBlink: Story = {
     holdTime: 0.05,
     openTime: 0.1,
     doubleBlinkChance: 0.5,
-  },
-  parameters: {
-    docs: { description: { story: 'Fast blinking with high double-blink chance' } },
   },
 }
 
