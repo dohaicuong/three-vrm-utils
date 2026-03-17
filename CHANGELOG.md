@@ -1,3 +1,9 @@
+# [1.5.0](https://github.com/dohaicuong/three-vrm-utils/compare/v1.4.0...v1.5.0) (2026-03-17)
+
+### Features
+
+- vrm-model component ([81b5413](https://github.com/dohaicuong/three-vrm-utils/commit/81b5413fc99ea3e22fe19a53b9936a1256e53d19))
+
 # [1.4.0](https://github.com/dohaicuong/three-vrm-utils/compare/v1.3.0...v1.4.0) (2026-03-17)
 
 ### Features
