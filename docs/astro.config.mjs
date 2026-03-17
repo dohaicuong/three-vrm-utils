@@ -33,6 +33,10 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Components',
+          items: [{ label: 'LightingPreset', slug: 'components/lighting-preset' }],
+        },
+        {
           label: 'Links',
           items: [
             {
