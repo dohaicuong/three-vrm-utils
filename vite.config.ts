@@ -13,6 +13,7 @@ export default defineConfig({
       'src/use-vrm-animation-manager/index.ts',
       'src/use-vrm-expression-manager/index.ts',
       'src/use-vrm-vowel-analyser/index.ts',
+      'src/lighting-preset/index.ts',
     ],
     dts: {
       tsgo: true,
