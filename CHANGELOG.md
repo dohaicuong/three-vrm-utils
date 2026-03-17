@@ -1,3 +1,9 @@
+# [1.4.0](https://github.com/dohaicuong/three-vrm-utils/compare/v1.3.0...v1.4.0) (2026-03-17)
+
+### Features
+
+- lighting preset component ([e8afb59](https://github.com/dohaicuong/three-vrm-utils/commit/e8afb59bd54d9005d975e0f2f96ffd9852367e1c))
+
 # [1.3.0](https://github.com/dohaicuong/three-vrm-utils/compare/v1.2.0...v1.3.0) (2026-03-16)
 
 ### Bug Fixes
