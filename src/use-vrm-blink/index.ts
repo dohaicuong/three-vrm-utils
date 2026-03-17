@@ -2,7 +2,7 @@ import type { VRM } from '@pixiv/three-vrm'
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 
-interface UseVRMBlinkOptions {
+export interface UseVRMBlinkOptions {
   /** Min seconds between blinks (default: 2.0) */
   minInterval?: number
   /** Max seconds between blinks (default: 6.0) */

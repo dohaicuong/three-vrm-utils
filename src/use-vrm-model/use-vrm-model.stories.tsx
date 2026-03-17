@@ -10,16 +10,6 @@ const meta = {
   component: Scene,
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      source: {
-        code: `import { useVRMModel } from "three-vrm-utils/use-vrm-model";
-
-function VRMModel({ url }: { url: string }) {
-  const [, vrm] = useVRMModel(url);
-  return <primitive object={vrm.scene} />;
-}`,
-      },
-    },
   },
 } satisfies Meta<typeof Scene>
 

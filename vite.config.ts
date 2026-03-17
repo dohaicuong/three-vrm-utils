@@ -14,6 +14,7 @@ export default defineConfig({
       'src/use-vrm-expression-manager/index.ts',
       'src/use-vrm-vowel-analyser/index.ts',
       'src/lighting-preset/index.ts',
+      'src/vrm-model/index.ts',
     ],
     dts: {
       tsgo: true,

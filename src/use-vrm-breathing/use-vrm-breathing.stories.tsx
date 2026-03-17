@@ -11,21 +11,6 @@ const meta = {
   component: Scene,
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      source: {
-        code: `import { useVRMModel } from "three-vrm-utils/use-vrm-model";
-import { useVRMBreathing } from "three-vrm-utils/use-vrm-breathing";
-
-function VRMModel({ url }: { url: string }) {
-  const [, vrm] = useVRMModel(url);
-  useVRMBreathing(vrm);
-
-  useFrame((_, delta) => vrm.update(delta));
-
-  return <primitive object={vrm.scene} />;
-}`,
-      },
-    },
   },
   argTypes: {
     bpm: { control: { type: 'range', min: 4, max: 40, step: 1 } },
@@ -49,9 +34,6 @@ export const HeavyBreathing: Story = {
     url: vrmUrl,
     bpm: 30,
     intensity: 0.03,
-  },
-  parameters: {
-    docs: { description: { story: 'Fast, exaggerated breathing' } },
   },
 }
 

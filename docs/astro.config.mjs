@@ -21,6 +21,13 @@ export default defineConfig({
           items: [{ label: 'Installation', slug: '' }],
         },
         {
+          label: 'Components',
+          items: [
+            { label: 'VRMModel', slug: 'components/vrm-model' },
+            { label: 'LightingPreset', slug: 'components/lighting-preset' },
+          ],
+        },
+        {
           label: 'Hooks',
           items: [
             { label: 'useVRMModel', slug: 'hooks/use-vrm-model' },
@@ -31,10 +38,6 @@ export default defineConfig({
             { label: 'useVRMExpressionManager', slug: 'hooks/use-vrm-expression-manager' },
             { label: 'useVRMVowelAnalyser', slug: 'hooks/use-vrm-vowel-analyser' },
           ],
-        },
-        {
-          label: 'Components',
-          items: [{ label: 'LightingPreset', slug: 'components/lighting-preset' }],
         },
         {
           label: 'Links',

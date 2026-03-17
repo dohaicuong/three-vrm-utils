@@ -25,29 +25,6 @@ const meta = {
   component: Scene,
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      source: {
-        code: `import { useVRMModel } from "three-vrm-utils/use-vrm-model";
-import { useVRMAnimations } from "three-vrm-utils/use-vrm-animations";
-import { useVRMAnimationManager } from "three-vrm-utils/use-vrm-animation-manager";
-
-const motions = {
-  idle: "/assets/idle.vrma",
-  appearing: "/assets/appearing.vrma",
-  "peace-sign": "/assets/peace-sign.vrma",
-};
-
-function VRMModel({ url }: { url: string }) {
-  const [, vrm] = useVRMModel(url);
-  const { actions, mixer } = useVRMAnimations(vrm, motions);
-  const { send } = useVRMAnimationManager(mixer, actions, { idle: "idle" });
-
-  useFrame((_, delta) => vrm.update(delta));
-
-  return <primitive object={vrm.scene} />;
-}`,
-      },
-    },
   },
 } satisfies Meta<typeof Scene>
 
