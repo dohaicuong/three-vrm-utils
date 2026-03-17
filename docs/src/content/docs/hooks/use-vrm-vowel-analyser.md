@@ -1,9 +1,9 @@
 ---
 title: useVRMVowelAnalyser
-description: Microphone audio analysis for VRM lip-sync.
+description: Audio analysis for VRM lip-sync.
 ---
 
-Analyses microphone audio via an `AnalyserNode` and maps volume to VRM vowel expressions (aa, ih, ou, ee, oh) for lip-sync.
+Analyses audio via an `AnalyserNode` and maps volume to <a href="https://vrm.dev/en/" target="_blank" rel="noopener noreferrer">VRM</a> vowel expressions (aa, ih, ou, ee, oh) for lip-sync. The `AnalyserNode` can come from any audio source — microphone, `<audio>`/`<video>` elements, Web Audio oscillators, etc.
 
 ## Usage
 

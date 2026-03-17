@@ -1,6 +1,6 @@
 # three-vrm-utils
 
-React hooks and utilities for working with [VRM](https://vrm.dev/) avatars in [React Three Fiber](https://github.com/pmndrs/react-three-fiber). Extension support for [@pixiv/three-vrm](https://github.com/pixiv/three-vrm) and [@pixiv/three-vrm-animation](https://github.com/pixiv/three-vrm/tree/dev/packages/three-vrm-animation).
+React hooks and utilities for working with [VRM](https://vrm.dev/en/) avatars in [React Three Fiber](https://github.com/pmndrs/react-three-fiber). Extension support for [@pixiv/three-vrm](https://github.com/pixiv/three-vrm) and [@pixiv/three-vrm-animation](https://github.com/pixiv/three-vrm/tree/dev/packages/three-vrm-animation).
 
 [Documentation](https://dohaicuong.github.io/three-vrm-utils/docs/) | [Storybook](https://dohaicuong.github.io/three-vrm-utils/storybook/)
 
@@ -177,7 +177,7 @@ function ExpressiveVRM({ url }: { url: string }) {
 
 ### useVRMVowelAnalyser
 
-Analyses microphone audio via an `AnalyserNode` and maps volume to VRM vowel expressions (aa, ih, ou, ee, oh) for lip-sync.
+Analyses audio via an `AnalyserNode` and maps volume to [VRM](https://vrm.dev/en/en/) vowel expressions (aa, ih, ou, ee, oh) for lip-sync. The `AnalyserNode` can come from any audio source — microphone, `<audio>`/`<video>` elements, Web Audio oscillators, etc.
 
 ```tsx
 import { useVRMModel } from 'three-vrm-utils/use-vrm-model'
