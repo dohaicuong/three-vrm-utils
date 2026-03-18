@@ -41,7 +41,7 @@ export interface VRMModelProps<T extends string = string> {
   idle?: NoInfer<T> | NoInfer<T>[]
   /** Animation crossfade duration in seconds (default: 0.3) */
   fadeTime?: number
-  /** Expression crossfade duration in seconds (default: 0.3) */
+  /** Expression crossfade duration in seconds (default: 0.15) */
   blendTime?: number
   /** Enable auto-blink. Pass true for defaults or an options object */
   blink?: boolean | UseVRMBlinkOptions

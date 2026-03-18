@@ -41,7 +41,8 @@ The component is generic: `VRMModel<T>` where `T` is inferred from the keys of `
 | `url`          | `string`                            | —           | URL to the VRM model file                   |
 | `motions`      | `Record<T, string>`                 | `{}`        | Map of animation names to `.vrma` file URLs |
 | `idle`         | `T \| T[]`                          | `'idle'`    | Idle animation name(s)                      |
-| `fadeTime`     | `number`                            | `0.3`       | Crossfade duration in seconds               |
+| `fadeTime`     | `number`                            | `0.3`       | Animation crossfade duration in seconds     |
+| `blendTime`    | `number`                            | `0.15`      | Expression crossfade duration in seconds    |
 | `blink`        | `boolean \| UseVRMBlinkOptions`     | `undefined` | Enable auto-blink with optional config      |
 | `breathing`    | `boolean \| UseVRMBreathingOptions` | `undefined` | Enable breathing with optional config       |
 | `analyserRef`  | `RefObject<AnalyserNode \| null>`   | `undefined` | Ref to an AnalyserNode for vowel lip-sync   |
@@ -66,9 +67,10 @@ The loaded `VRM` instance for direct access.
 
 ### `ref.current.expressionManager`
 
-| Method | Type                           | Description                            |
-| ------ | ------------------------------ | -------------------------------------- |
-| `send` | `(map: ExpressionMap) => void` | Set facial expressions with hold/decay |
+| Method | Type                           | Description                                              |
+| ------ | ------------------------------ | -------------------------------------------------------- |
+| `send` | `(map: ExpressionMap) => void` | Set facial expressions (crossfades from previous)        |
+| `stop` | `() => void`                   | Decay all active expressions to neutral over `blendTime` |
 
 ## Examples
 
@@ -96,6 +98,9 @@ ref.current?.expressionManager.send({ happy: 1 })
 ref.current?.expressionManager.send({
   surprised: { value: 1, hold: 1, decay: 0.5 },
 })
+
+// Return to neutral (crossfades out)
+ref.current?.expressionManager.stop()
 ```
 
 ### Vowel lip-sync

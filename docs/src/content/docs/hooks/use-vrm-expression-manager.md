@@ -1,9 +1,9 @@
 ---
 title: useVRMExpressionManager
-description: Manage VRM facial expressions with optional hold and decay timing.
+description: Manage VRM facial expressions with crossfade blending, optional hold and decay timing.
 ---
 
-Manages VRM facial expressions with optional hold and decay timing.
+Manages VRM facial expressions with automatic crossfade blending between states, plus optional hold and decay timing.
 
 ## Usage
 
@@ -15,10 +15,10 @@ import { useEffect } from 'react'
 
 function ExpressiveVRM({ url }: { url: string }) {
   const [, vrm] = useVRMModel(url)
-  const { send } = useVRMExpressionManager(vrm)
+  const { send, stop } = useVRMExpressionManager(vrm)
 
   useEffect(() => {
-    // Simple: set expression to a value
+    // Simple: set expression to a value (crossfades in)
     send({ happy: 1 })
 
     // With timing: hold for 2s then decay over 0.2s
@@ -33,11 +33,30 @@ function ExpressiveVRM({ url }: { url: string }) {
 }
 ```
 
+Calling `send()` again crossfades from the current expression to the new one. Previous expressions decay out while new ones ramp in over `blendTime`.
+
+```tsx
+send({ happy: 1 }) // happy ramps in over blendTime
+send({ relaxed: 0.7 }) // happy decays out, relaxed ramps in (crossfade)
+stop() // everything decays to neutral
+```
+
+## Options
+
+| Option      | Type     | Default | Description                                                                         |
+| ----------- | -------- | ------- | ----------------------------------------------------------------------------------- |
+| `blendTime` | `number` | `0.15`  | Crossfade duration between expressions in seconds. Set to `0` for instant snapping. |
+
+```tsx
+const { send, stop } = useVRMExpressionManager(vrm, { blendTime: 0.3 })
+```
+
 ## Returns
 
-| Property | Type                           | Description                 |
-| -------- | ------------------------------ | --------------------------- |
-| `send`   | `(map: ExpressionMap) => void` | Set one or more expressions |
+| Property | Type                           | Description                                              |
+| -------- | ------------------------------ | -------------------------------------------------------- |
+| `send`   | `(map: ExpressionMap) => void` | Set one or more expressions (crossfades from previous)   |
+| `stop`   | `() => void`                   | Decay all active expressions to neutral over `blendTime` |
 
 ## ExpressionMap
 

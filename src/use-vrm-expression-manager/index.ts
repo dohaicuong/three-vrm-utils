@@ -15,7 +15,7 @@ interface ExpressionOptions {
 export type ExpressionMap = Partial<Record<ExpressionName, number | ExpressionOptions>>
 
 export interface UseVRMExpressionManagerOptions {
-  /** Crossfade duration in seconds (default: 0.3) */
+  /** Crossfade duration in seconds (default: 0.15) */
   blendTime?: number
 }
 
