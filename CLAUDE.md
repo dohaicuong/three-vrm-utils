@@ -90,3 +90,11 @@ When a new hook file is added (e.g. `src/use-something.ts`), always do all of th
 2. Add an export to `package.json` → `exports` (e.g. `"./use-something": "./src/use-something.ts"`)
 3. Write a Storybook story in `src/use-something.stories.tsx`
 4. Add usage documentation to `README.md`
+
+## Updating Hooks or Components
+
+When modifying or adding hooks/components, always update all three together in the same pass:
+
+1. Implementation (source code)
+2. Storybook story
+3. Docs (`docs/src/content/docs/`)
