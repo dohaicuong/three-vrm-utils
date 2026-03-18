@@ -4,6 +4,7 @@ import { OrbitControls } from '@react-three/drei'
 import { Suspense, useEffect, useState } from 'react'
 import { useVRMModel } from '../use-vrm-model'
 import { useVRMExpressionManager } from '../use-vrm-expression-manager'
+import { LightingPreset } from '../lighting-preset'
 import vrmUrl from '../assets/miku_nt_v1.1.2.vrm?url'
 
 const meta = {
@@ -90,10 +91,7 @@ function Scene({ url, expression }: { url: string; expression: string }) {
   return (
     <Canvas camera={{ position: [0, 1.2, 1.5], fov: 45 }} style={{ height: '100vh' }}>
       <color attach="background" args={['#1a1a1a']} />
-      <ambientLight intensity={1.6} color="#ffe8d0" />
-      <directionalLight position={[0, 0.5, 5]} intensity={0.7} color="#ffdcc0" />
-      <directionalLight position={[2, 3, 3]} intensity={0.5} color="#ffe0c8" />
-      <directionalLight position={[-2, 2, -3]} intensity={0.25} />
+      <LightingPreset />
       <Suspense fallback={null}>
         <ExpressionVRM url={url} expression={expression} />
       </Suspense>
@@ -106,10 +104,7 @@ function DecayScene({ url }: { url: string }) {
   return (
     <Canvas camera={{ position: [0, 1.2, 1.5], fov: 45 }} style={{ height: '100vh' }}>
       <color attach="background" args={['#1a1a1a']} />
-      <ambientLight intensity={1.6} color="#ffe8d0" />
-      <directionalLight position={[0, 0.5, 5]} intensity={0.7} color="#ffdcc0" />
-      <directionalLight position={[2, 3, 3]} intensity={0.5} color="#ffe0c8" />
-      <directionalLight position={[-2, 2, -3]} intensity={0.25} />
+      <LightingPreset />
       <Suspense fallback={null}>
         <DecayVRM url={url} />
       </Suspense>
@@ -122,7 +117,7 @@ const EXPRESSIONS = ['happy', 'angry', 'sad', 'relaxed', 'surprised'] as const
 
 function CrossfadeVRM({ url, expression }: { url: string; expression: string | null }) {
   const [, vrm] = useVRMModel(url)
-  const { send, stop } = useVRMExpressionManager(vrm, { blendTime: 0.4 })
+  const { send, stop } = useVRMExpressionManager(vrm, { blendTime: 0.15 })
 
   useEffect(() => {
     if (expression) {
@@ -187,10 +182,7 @@ function CrossfadeScene({ url }: { url: string }) {
       </div>
       <Canvas camera={{ position: [0, 1.2, 1.5], fov: 45 }} style={{ height: '100%' }}>
         <color attach="background" args={['#1a1a1a']} />
-        <ambientLight intensity={1.6} color="#ffe8d0" />
-        <directionalLight position={[0, 0.5, 5]} intensity={0.7} color="#ffdcc0" />
-        <directionalLight position={[2, 3, 3]} intensity={0.5} color="#ffe0c8" />
-        <directionalLight position={[-2, 2, -3]} intensity={0.25} />
+        <LightingPreset />
         <Suspense fallback={null}>
           <CrossfadeVRM url={url} expression={expression} />
         </Suspense>
