@@ -27,6 +27,8 @@ export interface VRMModelRef<T extends string = string> {
   expressionManager: {
     /** Set expressions. Pass numbers or { value, hold, decay } objects */
     send: (map: ExpressionMap) => void
+    /** Decay all active expressions to neutral over blendTime */
+    stop: () => void
   }
 }
 
@@ -37,8 +39,10 @@ export interface VRMModelProps<T extends string = string> {
   motions?: Record<T, string>
   /** Idle animation name or array of names (default: 'idle') */
   idle?: NoInfer<T> | NoInfer<T>[]
-  /** Crossfade duration in seconds (default: 0.3) */
+  /** Animation crossfade duration in seconds (default: 0.3) */
   fadeTime?: number
+  /** Expression crossfade duration in seconds (default: 0.3) */
+  blendTime?: number
   /** Enable auto-blink. Pass true for defaults or an options object */
   blink?: boolean | UseVRMBlinkOptions
   /** Enable breathing. Pass true for defaults or an options object */
@@ -62,6 +66,7 @@ export function VRMModel<T extends string>({
   motions,
   idle,
   fadeTime,
+  blendTime,
   blink,
   breathing,
   analyserRef,
@@ -81,7 +86,7 @@ export function VRMModel<T extends string>({
   useVRMBlink(vrm, typeof blink === 'object' ? blink : undefined)
   useVRMBreathing(vrm, typeof breathing === 'object' ? breathing : undefined)
 
-  const { send: expressSend } = useVRMExpressionManager(vrm)
+  const { send: expressSend, stop: expressStop } = useVRMExpressionManager(vrm, { blendTime })
 
   useVRMVowelAnalyser(analyserRef ?? noopAnalyserRef, onVowel ?? noopVowelCallback, vowelOptions)
 
@@ -99,9 +104,10 @@ export function VRMModel<T extends string>({
       },
       expressionManager: {
         send: expressSend,
+        stop: expressStop,
       },
     }),
-    [vrm, send, getState, expressSend],
+    [vrm, send, getState, expressSend, expressStop],
   )
 
   return <primitive object={vrm.scene} />
