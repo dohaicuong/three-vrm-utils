@@ -1,3 +1,9 @@
+# [1.6.0](https://github.com/dohaicuong/three-vrm-utils/compare/v1.5.0...v1.6.0) (2026-04-13)
+
+### Features
+
+- use wake word hook, fix animation clips bug ([94f1bbc](https://github.com/dohaicuong/three-vrm-utils/commit/94f1bbc803e31c0f0e283a94826d5b05d17c8a06))
+
 # [1.5.0](https://github.com/dohaicuong/three-vrm-utils/compare/v1.4.0...v1.5.0) (2026-03-17)
 
 ### Features
