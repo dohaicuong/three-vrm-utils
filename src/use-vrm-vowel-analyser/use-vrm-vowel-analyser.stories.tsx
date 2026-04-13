@@ -4,6 +4,7 @@ import { OrbitControls } from '@react-three/drei'
 import { Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { useVRMModel } from '../use-vrm-model'
 import { useVRMVowelAnalyser } from '../use-vrm-vowel-analyser'
+import { LightingPreset } from '../lighting-preset'
 import vrmUrl from '../assets/miku_nt_v1.1.2.vrm?url'
 
 const meta = {
@@ -92,10 +93,7 @@ function Scene({ url }: { url: string }) {
     <div style={{ position: 'relative', height: '100vh' }}>
       <Canvas camera={{ position: [0, 1.45, 0.5], fov: 30 }} style={{ height: '100%' }}>
         <color attach="background" args={['#1a1a1a']} />
-        <ambientLight intensity={1.6} color="#ffe8d0" />
-        <directionalLight position={[0, 0.5, 5]} intensity={0.7} color="#ffdcc0" />
-        <directionalLight position={[2, 3, 3]} intensity={0.5} color="#ffe0c8" />
-        <directionalLight position={[-2, 2, -3]} intensity={0.25} />
+        <LightingPreset />
         <Suspense fallback={null}>
           <TalkingVRM url={url} analyserRef={analyserRef} />
         </Suspense>

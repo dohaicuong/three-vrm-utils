@@ -2,7 +2,7 @@ import type { VRM } from '@pixiv/three-vrm'
 import { createVRMAnimationClip, VRMAnimationLoaderPlugin } from '@pixiv/three-vrm-animation'
 import { useAnimations } from '@react-three/drei'
 import { useLoader } from '@react-three/fiber'
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import type { AnimationAction } from 'three'
 import { GLTFLoader } from 'three/examples/jsm/Addons.js'
 
@@ -14,14 +14,16 @@ export function useVRMAnimations<T extends string>(vrm: VRM, motions: Record<T, 
     loader.register((parser) => new VRMAnimationLoaderPlugin(parser)),
   )
 
-  const clips = animGltfs.map((gltf, index) => {
-    const clip = createVRMAnimationClip(gltf.userData.vrmAnimations[0], vrm)
-    clip.name = names[index]
-    clip.tracks = clip.tracks.filter(
-      (t) => !t.name.includes('VRMExpression') && !t.name.includes('VRMLookAt'),
-    )
-    return clip
-  })
+  const clips = useMemo(() => {
+    return animGltfs.map((gltf, index) => {
+      const clip = createVRMAnimationClip(gltf.userData.vrmAnimations[0], vrm)
+      clip.name = names[index]
+      clip.tracks = clip.tracks.filter(
+        (t) => !t.name.includes('VRMExpression') && !t.name.includes('VRMLookAt'),
+      )
+      return clip
+    })
+  }, [animGltfs, vrm])
   const animations = useAnimations(clips, vrm.scene)
 
   useEffect(() => {

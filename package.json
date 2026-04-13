@@ -25,6 +25,7 @@
     "./use-vrm-expression-manager": "./dist/use-vrm-expression-manager/index.mjs",
     "./use-vrm-model": "./dist/use-vrm-model/index.mjs",
     "./use-vrm-vowel-analyser": "./dist/use-vrm-vowel-analyser/index.mjs",
+    "./use-wake-word": "./dist/use-wake-word/index.mjs",
     "./vrm-model": "./dist/vrm-model/index.mjs",
     "./package.json": "./package.json"
   },

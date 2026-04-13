@@ -5,6 +5,7 @@ import { Suspense, useRef } from 'react'
 import { useVRMModel } from '../use-vrm-model'
 import { useVRMAnimations } from '../use-vrm-animations'
 import { useVRMAnimationManager } from '../use-vrm-animation-manager'
+import { LightingPreset } from '../lighting-preset'
 import vrmUrl from '../assets/miku_nt_v1.1.2-fixed-springbone.vrm?url'
 import idleUrl from '../assets/idle.vrma?url'
 import appearingUrl from '../assets/appearing.vrma?url'
@@ -64,10 +65,7 @@ function Scene({ url }: { url: string }) {
     <div style={{ position: 'relative', height: '100vh' }}>
       <Canvas camera={{ position: [0, 1.2, 1.5], fov: 45 }} style={{ height: '100%' }}>
         <color attach="background" args={['#1a1a1a']} />
-        <ambientLight intensity={1.6} color="#ffe8d0" />
-        <directionalLight position={[0, 0.5, 5]} intensity={0.7} color="#ffdcc0" />
-        <directionalLight position={[2, 3, 3]} intensity={0.5} color="#ffe0c8" />
-        <directionalLight position={[-2, 2, -3]} intensity={0.25} />
+        <LightingPreset />
         <Suspense fallback={null}>
           <ManagedVRM url={url} sendRef={sendRef} />
         </Suspense>
