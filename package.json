@@ -59,7 +59,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/three": "^0.183.1",
-    "@typescript/native-preview": "7.0.0-dev.20260412.1",
+    "@typescript/native-preview": "7.0.0-dev.20260426.1",
     "astro": "^6.0.5",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
